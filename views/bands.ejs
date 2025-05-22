@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <%- include("./partials/miniMenu") %>
+
+    <h1>
+      <%= title %>
+    </h1>
+    <p>Listado de bandas:</p>
+    <ul>
+      <% for(let i=0; i<bandsList.length; i++) { %>
+        <li>
+          <a href="bands/<%= i + 1%>">
+            <img src="/<%=bandsList[i].cover%>" alt="<%=bandsList[i].nombre%>" style="height: 150px; width: 150px;">
+            <%= bandsList[i].nombre%>
+          </a>
+        </li>
+        <% } %>
+    </ul>
+
+</body>
+
+</html>

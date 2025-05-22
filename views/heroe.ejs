@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <%- include("./partials/miniMenu") %>
+
+    <h1>
+      heroe id: <%= heroe.id %>
+    </h1>
+
+    <p>"Hola, mi nombre es <%= heroe.nombre%> y soy
+        <%= heroe.profesion%>".</p>
+
+
+</body>
+
+</html>

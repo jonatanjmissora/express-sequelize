@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <%- include("./partials/miniMenu") %>
+
+    <h1>
+      <%= title %>
+    </h1>
+    <p>Listado de heroes:</p>
+    <ul>
+      <% for(let i=0; i<heroesList.length; i++) { %>
+        <li>
+          <%= heroesList[i].nombre%>
+        </li>
+        <% } %>
+    </ul>
+
+    <form action="/personalidades" method="post">
+      <input type="text" name="heroe">
+      <button type="submit">Search</button>
+    </form>
+
+</body>
+
+</html>

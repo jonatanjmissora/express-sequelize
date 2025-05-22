@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <%- include("./partials/miniMenu") %>
+
+    <h1>
+      <%= title %>
+    </h1>
+    <p>Listado de bandas por genero: <%=genero%>
+    </p>
+    <ul>
+      <% for(let i=0; i<bandsByGenero.length; i++) { %>
+        <li>
+          <a href="http://localhost:3000/bands/<%=bandsByGenero[i].id%>">
+            <img src="/<%=bandsByGenero[i].cover%>" alt="<%=bandsByGenero[i].nombre%>"
+              style="height: 150px; width: 150px;">
+            <%= bandsByGenero[i].nombre%>
+          </a>
+        </li>
+        <% } %>
+    </ul>
+
+</body>
+
+</html>

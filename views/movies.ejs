@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/movies/movieNew">New</a>
+  </nav>
+
+  <p>
+    <%= JSON.stringify(locals.peliculas)%>
+  </p>
+
+  <h1>
+    <%= title %>
+  </h1>
+  <p>Listado de películas:</p>
+  <ul>
+    <% for(let i=0; i<moviesList.length; i++) { %>
+      <li>
+        <%= moviesList[i].title%>
+      </li>
+      <% } %>
+  </ul>
+
+  <form action="/movies/result" method="get">
+    <input type="text" name="search" placeholder="movie...">
+    <button type="submit">Search</button>
+  </form>
+
+</body>
+
+</html>

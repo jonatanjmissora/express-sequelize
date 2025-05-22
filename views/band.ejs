@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <%- include("./partials/miniMenu") %>
+
+    <h1>banda id: <%= band.id %>
+    </h1>
+    <img src="/<%=band.cover%>" alt="<%=band.nombre%>" style="height: 150px; width: 150px;">
+    <h2>
+      NOMBRE: <%= band.nombre %>
+    </h2>
+
+    <p>
+      INTEGRANTES: <%= band.integrantes %>
+    </p>
+    GENERO:
+    <a href="http://localhost:3000/bands/genero/<%=band.genero%>">
+      <%= band.genero %>
+    </a>
+    <p>
+      CANCIONES: <%= band.topCanciones %>
+    </p>
+
+</body>
+
+</html>
