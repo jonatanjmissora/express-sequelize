@@ -24,9 +24,11 @@
   <p>Listado de películas:</p>
   <ul>
     <% for(let i=0; i<moviesList.length; i++) { %>
+      <a href="/movies/id/<%= moviesList[i].id %>">
       <li>
         <%= moviesList[i].title%>
       </li>
+    </a>
       <% } %>
   </ul>
 

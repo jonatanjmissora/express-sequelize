@@ -1,21 +1,56 @@
 // const moviesList = ["Batman", "Superman", "Aquaman", "Wonder Woman", "Flash", "Cyborg"]
 let db = require('../database/models')
-let op = db.sequelize.Op
+const { Op } = require('sequelize')
 
 const moviesController = {
   index: async function (req, res) {
     try {
       const moviesList = await db.Movie.findAll()
       // return res.json(moviesList)
-      return res.render("movies", { title: "PELICULAS", moviesList });
+      return res.render("movies/movies", { title: "PELICULAS", moviesList });
     } catch (error) {
       console.log(error)
     }
   },
-  show: function (req, res) {
-    const id = req.params.id
-    return res.send(`Estamos en la pelicula con id: ${id}`);
+  show: async function (req, res) {
+    try {
+      const id = req.params.id
+      const movie = await db.Movie.findByPk(id, {
+        include: [ {association: "genre"}, {association: "actors"}]
+      })
+      // return res.json(movie)
+      return res.render("movies/movie", { title: "PELICULA", movie });
+    } catch (error) {
+      console.log(error)
+    }
   },
+
+  showGenre: async function (req, res) {
+    try {
+      const id = req.params.id
+      const genre = await db.Genre.findByPk(id, {
+        include: [ {association: "movies"} ]
+      })
+      // return res.json(genre)
+      return res.render("movies/movieGenre", { title: "GENERO", genre });
+    } catch (error) {
+      console.log(error)
+    }
+  },
+
+  showActor: async function (req, res) {
+    try {
+      const id = req.params.id
+      const actor = await db.Actor.findByPk(id, {
+        include: [ {association: "movies"} ]
+      })
+      // return res.json(genre)
+      return res.render("movies/movieActor", { title: "ACTOR", actor });
+    } catch (error) {
+      console.log(error)
+    }
+  },
+
   movieNew: function (req, res) {
     return res.render("movieNew", { title: "NEW" })
   },
@@ -31,12 +66,12 @@ const moviesController = {
   result: async function (req, res) {
     try {
       const moviesList = await db.Movie.findAll({
-        where: [{
-          title: { [op.like]: `Batman` }
-        }]
+        where: {
+          title: { [Op.like]: `%${req.query.search}%` }
+        }
       })
-      return res.json(moviesList)
-      // return res.render("movies", { title: "PELICULAS", moviesList });
+      // return res.json(moviesList)
+      return res.render("movies/movies", { title: "PELICULAS", moviesList });
     } catch (error) {
       console.log(error)
     }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <%- include("../partials/miniMenu") %>
+
+    <h1>movie id: <%= movie.id %>
+    </h1>
+
+    <h2>
+      TITULO: <%= movie.title %>
+    </h2>
+
+    GENERO:
+    <a href="http://localhost:3000/movies/genre/<%= movie.genre.id %>">
+      <%= movie.genre.name %>
+    </a>
+
+    RATING: <%= movie.rating %>
+
+    ACTORES:
+    <ul>
+      <% for(let i=0; i<movie.actors.length; i++) { %>
+        <a href="http://localhost:3000/movies/actor/<%= movie.actors[i].id %>">
+        <li>
+          <%= movie.actors[i].first_name%>
+          <%= movie.actors[i].last_name%>
+        </li>
+      </a>
+        <% } %>
+    </ul>
+
+</body>
+
+</html>

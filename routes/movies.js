@@ -5,7 +5,11 @@ const moviesController = require("../controllers/moviesController")
 /* GET home page. */
 router.get('/', moviesController.index);
 
-router.get('/movie/:id', moviesController.show);
+router.get('/id/:id', moviesController.show);
+
+router.get('/genre/:id', moviesController.showGenre);
+
+router.get('/actor/:id', moviesController.showActor);
 
 router.get("/result", moviesController.result)
 
