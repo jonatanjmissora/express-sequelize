@@ -1,3 +1,12 @@
+INSTALAR EXPRESS
+=================
+1- npm install express-generator nodemon -g
+2- express --view=ejs miProyecto   o   npx express --view=ejs miProyecto
+3- cd miProyecto npm install
+4- nodemon
+
+INSTALAR SQUELIZE
+=================
 1- instalar el workbench  https://dev.mysql.com/downloads/workbench/
 2- instalar el server https://dev.mysql.com/downloads/mysql/
 3- crear la contraseña del usuario root
@@ -48,3 +57,10 @@ una vez en el editor de codigo, lo que nos falta hacer es conectar sequelize
     },
 9- ir a "/movies" para ver el json
 10- crear la vista para "movies.js"
+
+
+COMO USAR
+==========
+1- ejecutar el MySQL server 9.3 y activar el server siguiendo las instrucciones
+2- controlar el mensaje en el "localhost:3306"
+3- Luego correr el workbench para ver las tablas.
