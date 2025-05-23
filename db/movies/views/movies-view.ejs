@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <%- include("../views/movie-menu-view") %>
+
+    <div class="movies-title">
+
+      <span>
+        <%= title %>:
+      </span>
+
+      <form action="/movies/result" method="get">
+        <input type="text" name="search" placeholder="movie...">
+        <button type="submit">Search</button>
+      </form>
+
+    </div>
+
+    <ul>
+      <% for(let i=0; i<moviesList.length; i++) { %>
+        <li>
+          <a href="/movies/id/<%= moviesList[i].id %>">
+            <%= moviesList[i].title%>
+          </a>
+        </li>
+        <% } %>
+    </ul>
+
+
+</body>
+
+</html>

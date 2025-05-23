@@ -5,14 +5,17 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var moviesRouter = require('./routes/movies');
+var moviesRouter = require('./db/movies/movies-routes');
 var personalidadesRouter = require('./routes/personalidades');
 var bandsRouter = require('./routes/bands');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', [
+  path.join(__dirname, 'views'),
+  path.join(__dirname, "db/movies/views")
+]);
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));

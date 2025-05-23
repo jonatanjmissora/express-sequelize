@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <%- include("../views/movie-menu-view") %>
+
+    <div class="movies-title">
+
+      <span>
+        TITULO: <%= movie.title %>
+      </span>
+
+    </div>
+
+    <div class="movie-row">
+      <span>GENERO:</span>
+      <a href="http://localhost:3000/movies/genre/<%= movie.genre.id %>">
+        <%= movie.genre.name %>
+      </a>
+    </div>
+
+    <div class="movie-row">
+      <span>RATING:</span>
+      <span>
+        <%= movie.rating %>
+      </span>
+    </div>
+
+    <div class="movie-row">
+      <span>ACTORES:</span>
+    </div>
+
+    <ul>
+      <% for(let i=0; i<movie.actors.length; i++) { %>
+        <li>
+          <a href="http://localhost:3000/movies/actor/<%= movie.actors[i].id %>">
+            <%= movie.actors[i].first_name%>
+              <%= movie.actors[i].last_name%>
+          </a>
+        </li>
+        <% } %>
+    </ul>
+
+</body>
+
+</html>

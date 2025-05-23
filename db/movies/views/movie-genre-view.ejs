@@ -9,12 +9,20 @@
 </head>
 
 <body>
-  <%- include("../partials/miniMenu") %>
+  <%- include("../views/movie-menu-view") %>
 
-    <h1>
-      <%= title %>
-    </h1>
-    <p>GENERO: <%=genre.name%>
+    <div class="movies-title">
+
+      <span>
+        GENERO: <%= genre.name %>
+      </span>
+
+    </div>
+
+    <div class="movie-row">
+      <span>PELICULAS:</span>
+    </div>
+
     </p>
     <ul>
       <% for(let i=0; i<genre.movies.length; i++) { %>
